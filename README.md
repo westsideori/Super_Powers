@@ -1,52 +1,33 @@
-# Super_Powers
-Deliverables to build a Rails single model CRUD app
+# Super Duper Powers
+- A app for generating and storing a collective list of all superpowers
 
+Below are some deliverable to help guide you in building your first Rails single model CRUD app
 
-# Super Powers
-
-Jallen has asked what superpower you would have if you could have any power imaginable. Your classmates are comming up with some off the charts creative superpowers. You want to create a site for you and your classmates to keep track of all of the superpowers you can think up. A place where anyone from the class can come and add a new power or edit an exsisting one.
+Jallen has posed an age-old question in the class slack channel "If you could have any superpower imaginable, what would it be? and why? Your classmates are coming up with some off-the-charts creative superpowers but even better are the reasons for choosing each power. You want to create a site for you and your classmates to keep track of all of the superpowers you can think up and all the pros and cons for each power. A place where anyone from the class can go and add a new power or edit an existing one. A database of superpowers that both exist in the worlds of comic books and of new powers that we have never seen before.
 
 You're creating an app from scratch, so fork and clone this README, and start with `rails new {{app_name}} -G` (the `-G` keeps rails from making a new Git repo, since you're already cloning an existing one)
 
 **Deliverables**
 - Create a `SuperPower` model with the following attributes:
   - `name` - string
-  - `species` - string (stick to "dog", "cat" and "bird" for now)
-  - `year_of_birth` - integer 
-  - `good_with_kids?` - boolean
+  - `reason` - string  - aka the pros why do you want this power?
+  - `rating` - integer (1-5) 
+  - `already_exists?` - boolean
   
 *Make sure your routes are following RESTful conventions!* 
 - Home page at `/` welcoming people to your superpower generator app
 - Create an `index` page at `/super_powers` that lists all powers
-- Each power should link to that powers's detail/show page
+- Each power should link to that powers detail/show page
   - show page should list the power's name  
-  - should list the pet's age (not the birth year!  Figure out the age without hardcoding the current year)
-  - Either "Good with children" or "Prefers a home without children" 
-  - detail page should link back to index page
+  - should list the powers rating
+      - Bonus: find all instances of this power in the database and show the average rating
+  - Either "Already exists in the comic book world" or "Watch our Marvel, we are coming for you with this one" 
+  - detail page should link back to the index page
   
- - Create pages at `/dogs`, `/cats` and `/birds` listing the respective animals.  (Hint:  Do you really need another view here, or can you use something you've already built?)
+ - New/Create action at `/super_powers/new` & `/super_powers`
+ - Update page where you can only edit the `rating` or `reason` 
  
  **Bonus**
-  - Add a column to the database to store a url to the picture of an animal.  Show the picture on the pet's detail page
-  - Provide links on your index page to sort by age or alphabetically by name.  Don't make a new route:  use get parameters to let your user choose how to sort (hint: `?sort_by=name` or `?sort_by=age`).  You'll need to Google!
-
-
-## Questions
-- Creating a new resource - huh?
-- forms (action, method)
-- how to set up correct inheritance
-- controller methods
-- params
-    - when/how to use?
-      - form params
-      - url params
-      - 'get' params
-- authenticity token
-- using routes effectively
-
-- find_by : where :: find : select
-  ^ first    ^^array of all matches
-
-
-- csrf: cross site request forgery protection
-
+  - Add a delete button on a powers show page
+  - Add a column to the database to store a URL to the picture of a power.  Show the picture on the powers' detail page
+  - Provide links on your index page to sort by `rating` or alphabetically by `name`.  Don't make a new route:  use get parameters to let your user choose how to sort (hint: `?sort_by=name` or `?sort_by=age`).  You'll need to Google!
