@@ -1,0 +1,18 @@
+<h1>Create a Super Power</h1>
+
+<%= form_for @super_power do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+    <%= f.label :reason %><br>
+    <%= f.text_area :reason %><br>
+    <%= f.label :rating %><br>
+    <%= f.number_field :rating, in: 1..5 %><br>
+    <%= f.label :img_url %><br>
+    <%= f.text_field :img_url %><br>
+    <%= f.label :already_exists %>
+    <%= f.check_box :already_exists %><br>
+    
+
+    <%= f.submit %>
+<% end %>
+

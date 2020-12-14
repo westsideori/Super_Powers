@@ -1,0 +1,25 @@
+<h1><%= @super_power.name %></h1>
+
+<p>Rating: <%= @super_power.rating %></p>
+
+<% if @super_power.already_exists %>
+    <p>Already exists in the comic book world</p>
+<% else %>
+    <p>Watch out Marvel, we are coming for you with this one</p>
+<% end %>
+<br>
+
+<img src="<%= @super_power.img_url %>" alt="Super Power"> 
+
+<% array = [] %>
+<% SuperPower.all.map do |superpower| %> 
+    <% if superpower.name == @super_power.name %>
+        <% array << superpower.rating %>
+    <% end %>
+<% end  %>
+<% avg = array.sum / array.length %>
+<p>Average Rating: <%= avg %></p>
+
+<%= button_to "Delete Super Power", super_power_path(@super_power), method: :delete %>
+
+<%= link_to 'List of Super Powers', super_powers_path %>

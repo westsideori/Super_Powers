@@ -1,0 +1,2 @@
+module SuperPowerHelper
+end

@@ -1,0 +1,9 @@
+<h1>Super Powers</h1>
+
+<ul><% @super_powers.each do |super_power| %>
+    <li><%= link_to super_power.name, super_power_path(super_power) %></li>
+    <% end %>
+</ul>
+
+
+
